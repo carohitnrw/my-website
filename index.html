@@ -41,6 +41,7 @@
     }
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
+    html, body { overflow-x: hidden; max-width: 100%; }
     body { font-family: "DM Sans", sans-serif; color: var(--text); background: var(--cream); }
     h1, h2, h3 { font-family: "Playfair Display", serif; }
 
@@ -48,27 +49,28 @@
     .top-bar a { color: var(--gold-light); text-decoration: underline; }
 
     nav { background: var(--white); border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 12px rgba(0,0,0,0.06); }
-    .nav-inner { max-width: 1300px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; padding: 10px 24px; gap: 20px; }
-    .nav-brand { display: flex; align-items: center; gap: 12px; flex-shrink: 0; white-space: nowrap; }
+    .nav-inner { max-width: 1300px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; padding: 10px 24px; gap: 14px; overflow: hidden; }
+    .nav-brand { display: flex; align-items: center; gap: 12px; flex-shrink: 0; white-space: nowrap; min-width: 0; }
     .logo-name { font-family: "DM Sans", sans-serif; font-size: 21px; color: var(--navy); font-weight: 700; line-height: 1.25; white-space: nowrap; }
     .logo-tag { font-size: 11px; color: var(--gold); font-weight: 600; letter-spacing: 1px; text-transform: uppercase; display: block; white-space: nowrap; margin-top: 1px; }
     .nav-links { display: flex; gap: 18px; align-items: center; flex-wrap: nowrap; }
     .nav-links a { white-space: nowrap; }
     .nav-links a { text-decoration: none; color: var(--text); font-size: 14px; font-weight: 500; transition: color 0.2s; }
     .nav-links a:hover { color: var(--navy); }
-    .nav-ctas { display: flex; gap: 10px; align-items: center; }
+    .nav-ctas { display: flex; gap: 10px; align-items: center; flex-shrink: 0; }
+    .nav-ctas .btn { white-space: nowrap; }
     .social-icons { display: flex; gap: 8px; align-items: center; margin-right: 4px; }
     .social-icon { display: flex; align-items: center; justify-content: center; width: 34px; height: 34px; border-radius: 50%; background: var(--cream); color: var(--navy); transition: all 0.2s; }
     .social-icon:hover { background: var(--gold); color: white; transform: translateY(-2px); }
     .footer-social { display: flex; gap: 10px; margin-top: 18px; }
     .footer-social .social-icon { background: rgba(255,255,255,0.08); color: white; }
     .footer-social .social-icon:hover { background: var(--gold); color: var(--navy); }
-    @media (max-width: 768px) { .nav-social { display: none; } }
-    @media (max-width: 1100px) { .nav-links { display: none; } }
-    @media (min-width: 1101px) { .nav-links { display: flex; } }
+    @media (max-width: 1400px) { .nav-social { display: none; } }
+    @media (max-width: 1400px) { .nav-links { display: none; } }
+    @media (min-width: 1401px) { .nav-links { display: flex; } }
     .nav-burger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 8px; flex-shrink: 0; }
     .nav-burger span { width: 24px; height: 2.5px; background: var(--navy); border-radius: 2px; }
-    @media (max-width: 1100px) { .nav-burger { display: flex; } }
+    @media (max-width: 1400px) { .nav-burger { display: flex; } }
     .mobile-menu { display: none; flex-direction: column; background: white; border-top: 1px solid var(--border); padding: 12px 24px; }
     .mobile-menu.open { display: flex; }
     .mobile-menu a { padding: 12px 0; color: var(--text); text-decoration: none; font-size: 15px; font-weight: 500; border-bottom: 1px solid var(--border); }
@@ -331,6 +333,14 @@
       .cta-inner h2 { font-size: 26px; }
       .ann-inner { grid-template-columns: 1fr; }
       .upload-options { flex-direction: column; align-items: center; }
+    }
+
+    @media (max-width: 400px) {
+      .logo-name { font-size: 16px; }
+      .logo-tag { font-size: 9px; letter-spacing: 0.5px; }
+      .nav-brand img { height: 34px !important; }
+      .nav-inner { padding: 8px 14px; gap: 8px; }
+      .nav-ctas .btn { font-size: 12px; padding: 8px 12px; }
     }
 
     /* LIGHTBOX */
