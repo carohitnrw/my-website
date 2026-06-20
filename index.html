@@ -48,10 +48,12 @@
     .top-bar a { color: var(--gold-light); text-decoration: underline; }
 
     nav { background: var(--white); border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 12px rgba(0,0,0,0.06); }
-    .nav-inner { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; padding: 12px 24px; }
-    .logo-name { font-family: "DM Sans", sans-serif; font-size: 20px; color: var(--navy); font-weight: 700; line-height: 1.2; }
-    .logo-tag { font-size: 11px; color: var(--gold); font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; display: block; }
-    .nav-links { display: flex; gap: 24px; align-items: center; }
+    .nav-inner { max-width: 1300px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; padding: 10px 24px; gap: 20px; }
+    .nav-brand { display: flex; align-items: center; gap: 12px; flex-shrink: 0; white-space: nowrap; }
+    .logo-name { font-family: "DM Sans", sans-serif; font-size: 21px; color: var(--navy); font-weight: 700; line-height: 1.25; white-space: nowrap; }
+    .logo-tag { font-size: 11px; color: var(--gold); font-weight: 600; letter-spacing: 1px; text-transform: uppercase; display: block; white-space: nowrap; margin-top: 1px; }
+    .nav-links { display: flex; gap: 18px; align-items: center; flex-wrap: nowrap; }
+    .nav-links a { white-space: nowrap; }
     .nav-links a { text-decoration: none; color: var(--text); font-size: 14px; font-weight: 500; transition: color 0.2s; }
     .nav-links a:hover { color: var(--navy); }
     .nav-ctas { display: flex; gap: 10px; align-items: center; }
@@ -62,6 +64,15 @@
     .footer-social .social-icon { background: rgba(255,255,255,0.08); color: white; }
     .footer-social .social-icon:hover { background: var(--gold); color: var(--navy); }
     @media (max-width: 768px) { .nav-social { display: none; } }
+    @media (max-width: 1100px) { .nav-links { display: none; } }
+    @media (min-width: 1101px) { .nav-links { display: flex; } }
+    .nav-burger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 8px; flex-shrink: 0; }
+    .nav-burger span { width: 24px; height: 2.5px; background: var(--navy); border-radius: 2px; }
+    @media (max-width: 1100px) { .nav-burger { display: flex; } }
+    .mobile-menu { display: none; flex-direction: column; background: white; border-top: 1px solid var(--border); padding: 12px 24px; }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a { padding: 12px 0; color: var(--text); text-decoration: none; font-size: 15px; font-weight: 500; border-bottom: 1px solid var(--border); }
+    .mobile-menu a:last-child { border-bottom: none; }
     .social-icons { display: flex; gap: 8px; align-items: center; }
     .social-icons a { width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; text-decoration: none; font-size: 15px; transition: all 0.2s; color: white; }
     .social-icons.nav-social a { background: #f0f0f0; color: var(--navy); }
@@ -479,11 +490,11 @@
 <!-- Navbar -->
 <nav>
   <div class="nav-inner">
-    <div style="display:flex;align-items:center;gap:12px;">
-      <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAMCAgMCAgMDAwMEAwMEBQgFBQQEBQoHBwYIDAoMDAsKCwsNDhIQDQ4RDgsLEBYQERMUFRUVDA8XGBYUGBIUFRT/2wBDAQMEBAUEBQkFBQkUDQsNFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBT/wAARCABQAHgDASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwD9U6KKKACiiigAopKM0ALRSZozQAtFJmloAKKKKACiiigAooooAKKKKACml1HUgUp4FeO/tXfFe6+DXwU13X9OYJq7+XY2LsMiOaVtofH+yNzD1KgVdOnKrNQju9DOpUjShKctkrmZ8a/2vfBfwZ1EaNIbnxH4oJCjRdHUSSox+6JG6IT2Xlv9muF0/wDaB/aG8YMbnw/8DIbGwcbo/wC29R8iQj6OYz+laH7FHwJ0nwl8PNL8b6jANS8ZeIoP7Qn1O6PmyxRy/MqIx5BIwzN1YscnAFfTaRiMcfma75SoYeThGHM1u3ffySsebTjiMRFVJz5U9krbebaZ8wS/FL9qJFOfg34fb/d1tDz/AN/a9qPxEk8I/CpPFnj62g8M3FpYi61S0jnE628mOY0YffJOAoHUkDmu1ZtiZNfCvxc8S6l+2f8AG+2+GHhi7ki+H/h6fz9b1W3PyTOjFWYHocHMcY7tvfkKKIKOKlZxUYx1bV9vm2FSUsJHSbnJ6JO2/wAkjoPgn/wUFX4h/FKPw54j0Kz8PaRqcph0y8S4Z3jkJ/dxz5G07+m5cANgcg5r7MjcMOvevhj9r79njRR4ds28OfZLKbTIcaZbJOquiouZLPOchXCGSIn7sokXI84Y9W/Zg+PGteJvhbZw+L9F1n/hJNPxatOli7/b4wBsn3fdVscNuI+YZ71jjauCUI1aM1Ho4t6/duzbBU8dzSp14OXVSS0+/ZH0nuHrRkVxOnfEyy1K68iOPMozm2gkW5n/ABWHeq/8CYV1tpNJPAJJIXgJ/gkxuH1wT/OvOhUjUV4s9C6va/6lnNGabRWoDs0U2igB9FFFACGvH/2q/hHd/Gn4Maz4f07adXRo76xR22rJPE24IT23DcuexYE8CvYaTGa0pzlSmpx3WpnUpxqwdOWz0PkL9ir9o3TJvC1l8MvF1x/YPi7QSbCCDUf3Juo1J2oN3SVB8pQ8kAEZ5x9dGVRznH1rw34sfBX4TfHfxlfeH9e08f8ACZWdhBfTXtgGt7uO2kd0iYygbXG6JwFbdjb0HFeIy/Bm/wDC2v8AiLwn4R/aW8QaReeHrRb670XUo5Jmt7YxiTeuHG9QpGfLU4yM8kV6E4UMTJzi3BvVpptfJq/4o8qFSvhYKEoqaWiaaT+advwZ3H7aHx91Dw5ZWnwy8FCS78ceJQtuwtD+9tYJCVGMdJJOVU/wrubsKytF/ZO1T4ZeCfC1vpAfxBex7BrNnHN5CTvkt8rAj5FBKAk5xg9yKs/Br4KeDPghp9z8bvFfjO88Zz3llHeJrt3aSARQzhAsqRndKXcOi5PIBwAOa+gvC/xb8L+Ltck0Wyu7m31hYDc/2fqVhPZTvECAZESZFLqCQCVzgkZxmvMzXB0cbhVg43cU7uVrO69fyZ6mVYyvgsX9cbSk1ZRvdWfp+a7Hhfjfw1d+AvG2kWsNlZeH/DmpyIkeo2Wlx3N1A5H3HeTeSwI6jtyAcGvEv2l7zx78JPFularNqVx4h0PT7qNbzTtT/eQT5ZjE7Dp5MyKycD93LG685Qn72i8YaLd+MLrwutzv12zs4tRltTG3yQyO6I+7GOWRxgHPFeV/tMt4H1HTtK0LxNqNnZanrDPZWcN2H2XUbsiyRSOqnykLGLbK2AkoibqMHly3AYfCYhudNSi+ltl+X3I83HUKmKU6lWq5O+l23by1djvfhD418PfETwDo+v8AhdIoNGvYd628SKhgccPG6rwHVgVI9RXakDHFfOn7Lf7Nniv9nnU9atp/GFrrfha//erp4tHjljnBAEu4uVBKcMAMEhSMY5+i67qsKdObjRd49Duw0qk6UXVjaXUBRRRWR0hRRRQA+iiigAooooA4qy+HCWXxY1nxv9ud5NR0a00g2XlgLGIJppBIGzklvPIxjjb71xHi79mLRfGuu+NtWv7+5iv/ABBJbT2l7aARXGkyQ2v2fdFIOWDrncrDawJUgivaz0ptaqrOLumYyo05K0loeX+IfgfFrvwDg+GK6tJbQQ6XaaYupCBWfEHl4fy8gc+UOM8ZqXRfhLqb+PNO8WeKfFEniLUNKtp7bTYILFLK3tRNtErlVZmd2CKuWbAGcDJzXpdFL2kkmr7/AKh7GCtptb8DibP4bLZ/FnV/HAvmaXUNHtdI+xeWAqCGaWUSBs5JPm4xjjb71xXiv9mOw8f+JvE+seI/EmsXJ1u2Gm/ZbJ47eGCwUAi3AKuT+83SFwQSxH91ce10U41Zxd4vXYUqNOStJabmD4G0HUfC/hXTNJ1PWJNfu7OEQPqU0QjkuAvCs6gkbtuAT3IJwM4reoorNu7ubJKKsgooopDCiiigB9FFFABRRRQAh6U2nHpTaACiiigAooooAKKKKACiiigAooooA//Z" alt="CA India Logo" style="height:42px;width:auto;" />
+    <div class="nav-brand">
+      <img src="data:image/jpeg;base64,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" alt="CA India Logo" style="height:44px;width:auto;flex-shrink:0;" />
       <div>
-        <span class="logo-name">Rohit G & Associates</span>
-        <span class="logo-tag">CA Rohit Garg &middot; Chartered Accountants</span>
+        <div class="logo-name">Rohit G &amp; Associates</div>
+        <div class="logo-tag">CA Rohit Garg &middot; Chartered Accountants</div>
       </div>
     </div>
     <div class="nav-links">
@@ -516,9 +527,27 @@
       </div>
       <a href="tel:+918607243125" class="btn btn-outline" aria-label="Call CA Rohit Garg">&#128222; Call Now</a>
       <a href="https://wa.me/918607243125?text=Hello%2C%20I%20need%20CA%20services" class="btn btn-gold" target="_blank"><svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" style="vertical-align:-3px;margin-right:4px;"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12.004 2C6.477 2 2 6.477 2 12.004c0 1.91.531 3.722 1.453 5.272L2 22l4.872-1.42a9.946 9.946 0 0 0 5.132 1.42h.004c5.527 0 10.004-4.477 10.004-10.004C22.012 6.477 17.531 2 12.004 2zm0 18.198h-.003a8.183 8.183 0 0 1-4.168-1.143l-.299-.177-3.099.904.916-3.025-.195-.31a8.18 8.18 0 0 1-1.255-4.391c0-4.523 3.682-8.205 8.207-8.205 2.19 0 4.25.854 5.797 2.404a8.151 8.151 0 0 1 2.404 5.804c-.003 4.524-3.685 8.205-8.205 8.205z"/></svg>WhatsApp</a>
+      <div class="nav-burger" id="navBurger" onclick="toggleMobileMenu()" role="button" aria-label="Open menu" tabindex="0">
+        <span></span><span></span><span></span>
+      </div>
     </div>
   </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#about" onclick="toggleMobileMenu()">About</a>
+    <a href="#services" onclick="toggleMobileMenu()">Services</a>
+    <a href="#why-us" onclick="toggleMobileMenu()">Why Us</a>
+    <a href="#updates" onclick="toggleMobileMenu()">Updates</a>
+    <a href="#faq" onclick="toggleMobileMenu()">FAQs</a>
+    <a href="#contact" onclick="toggleMobileMenu()">Contact</a>
+    <a href="#collaborate" style="color:var(--gold);font-weight:600;" onclick="toggleMobileMenu()">Collaboration</a>
+    <a href="#contact-form" onclick="toggleMobileMenu()">Send Enquiry</a>
+  </div>
 </nav>
+<script>
+  function toggleMobileMenu() {
+    document.getElementById('mobileMenu').classList.toggle('open');
+  }
+</script>
 
 <!-- Hero -->
 <section class="hero">
