@@ -49,12 +49,11 @@
     .top-bar a { color: var(--gold-light); text-decoration: underline; }
 
     nav { background: var(--white); border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 12px rgba(0,0,0,0.06); }
-    .nav-inner { max-width: 1300px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; padding: 10px 24px; gap: 14px; overflow: hidden; }
+    .nav-inner { max-width: 1300px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; padding: 10px 24px; gap: 14px; }
     .nav-brand { display: flex; align-items: center; gap: 12px; flex-shrink: 0; white-space: nowrap; min-width: 0; }
-    .logo-name { font-family: "DM Sans", sans-serif; font-size: 21px; color: var(--navy); font-weight: 700; line-height: 1.25; white-space: nowrap; }
-    .logo-tag { font-size: 11px; color: var(--gold); font-weight: 600; letter-spacing: 1px; text-transform: uppercase; display: block; white-space: nowrap; margin-top: 1px; }
-    .nav-links { display: flex; gap: 18px; align-items: center; flex-wrap: nowrap; }
-    .nav-links a { white-space: nowrap; }
+    .logo-name { font-family: "DM Sans", sans-serif; font-size: 20px; color: var(--navy); font-weight: 700; line-height: 1.2; }
+    .logo-tag { font-size: 11px; color: var(--gold); font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; display: block; }
+    .nav-links { display: flex; gap: 24px; align-items: center; }
     .nav-links a { text-decoration: none; color: var(--text); font-size: 14px; font-weight: 500; transition: color 0.2s; }
     .nav-links a:hover { color: var(--navy); }
     .nav-ctas { display: flex; gap: 10px; align-items: center; flex-shrink: 0; }
@@ -65,16 +64,7 @@
     .footer-social { display: flex; gap: 10px; margin-top: 18px; }
     .footer-social .social-icon { background: rgba(255,255,255,0.08); color: white; }
     .footer-social .social-icon:hover { background: var(--gold); color: var(--navy); }
-    @media (max-width: 1400px) { .nav-social { display: none; } }
-    @media (max-width: 1400px) { .nav-links { display: none; } }
-    @media (min-width: 1401px) { .nav-links { display: flex; } }
-    .nav-burger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 8px; flex-shrink: 0; }
-    .nav-burger span { width: 24px; height: 2.5px; background: var(--navy); border-radius: 2px; }
-    @media (max-width: 1400px) { .nav-burger { display: flex; } }
-    .mobile-menu { display: none; flex-direction: column; background: white; border-top: 1px solid var(--border); padding: 12px 24px; }
-    .mobile-menu.open { display: flex; }
-    .mobile-menu a { padding: 12px 0; color: var(--text); text-decoration: none; font-size: 15px; font-weight: 500; border-bottom: 1px solid var(--border); }
-    .mobile-menu a:last-child { border-bottom: none; }
+    @media (max-width: 768px) { .nav-social { display: none; } .nav-links { display: none; } }
     .social-icons { display: flex; gap: 8px; align-items: center; }
     .social-icons a { width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; text-decoration: none; font-size: 15px; transition: all 0.2s; color: white; }
     .social-icons.nav-social a { background: #f0f0f0; color: var(--navy); }
