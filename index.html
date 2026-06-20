@@ -49,10 +49,10 @@
     .top-bar a { color: var(--gold-light); text-decoration: underline; }
 
     nav { background: var(--white); border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 12px rgba(0,0,0,0.06); }
-    .nav-inner { max-width: 1300px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; padding: 10px 24px; gap: 14px; }
+    .nav-inner { max-width: 1300px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; padding: 10px 24px; gap: 14px; flex-wrap: wrap; row-gap: 8px; }
     .nav-brand { display: flex; align-items: center; gap: 12px; flex-shrink: 0; white-space: nowrap; min-width: 0; }
     .logo-name { font-family: "DM Sans", sans-serif; font-size: 20px; color: var(--navy); font-weight: 700; line-height: 1.2; }
-    .logo-tag { font-size: 11px; color: var(--gold); font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; display: block; }
+    .logo-tag { font-size: 11px; color: var(--gold); font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; display: block; line-height: 1.4; }
     .nav-links { display: flex; gap: 24px; align-items: center; }
     .nav-links a { text-decoration: none; color: var(--text); font-size: 14px; font-weight: 500; transition: color 0.2s; }
     .nav-links a:hover { color: var(--navy); }
@@ -61,7 +61,6 @@
     .social-icons { display: flex; gap: 8px; align-items: center; margin-right: 4px; }
     .social-icon { display: flex; align-items: center; justify-content: center; width: 34px; height: 34px; border-radius: 50%; background: var(--cream); color: var(--navy); transition: all 0.2s; }
     .social-icon:hover { background: var(--gold); color: white; transform: translateY(-2px); }
-    .footer-social { display: flex; gap: 10px; margin-top: 18px; }
     .footer-social .social-icon { background: rgba(255,255,255,0.08); color: white; }
     .footer-social .social-icon:hover { background: var(--gold); color: var(--navy); }
     @media (max-width: 768px) { .nav-links { display: none; } }
@@ -86,7 +85,7 @@
     .social-x { background: #000000; }
     .social-li { background: #0a66c2; }
     .social-gmap { background: #ea4335; }
-    .footer-social { display: flex; gap: 10px; margin-top: 18px; scroll-margin-top: 100px; }
+    .footer-social { display: flex; gap: 10px; margin-top: 18px; scroll-margin-top: 120px; }
     .btn { display: inline-flex; align-items: center; gap: 6px; padding: 10px 20px; border-radius: 8px; font-size: 14px; font-weight: 600; text-decoration: none; cursor: pointer; transition: all 0.2s; border: none; }
     .btn-outline { border: 2px solid var(--navy); color: var(--navy); background: transparent; }
     .btn-outline:hover { background: var(--navy); color: white; }
@@ -502,8 +501,9 @@
     <div class="nav-brand">
       <img src="data:image/jpeg;base64,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" alt="CA India Logo" style="height:44px;width:auto;flex-shrink:0;" />
       <div>
-        <div class="logo-name">Rohit G &amp; Associates</div>
-        <div class="logo-tag">CA Rohit Garg &middot; Chartered Accountants</div>
+        <div class="logo-name" style="text-align:center;">Rohit G &amp; Associates</div>
+        <div class="logo-tag" style="text-align:center;">CA Rohit Garg</div>
+        <div class="logo-tag" style="text-align:center;">Chartered Accountants</div>
       </div>
     </div>
     <div class="nav-links">
